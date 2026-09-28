@@ -5,8 +5,9 @@ import 'package:vbindex/constants/app_color.dart';
 import 'package:vbindex/constants/app_icons.dart';
 import 'package:vbindex/constants/app_spacing.dart';
 import 'package:vbindex/constants/app_textstyle.dart';
-import 'package:vbindex/widgets/app_svg_icon.dart';
 import 'package:vbindex/presentations/routes.dart';
+import 'package:vbindex/widgets/app_refresh_indicator.dart';
+import 'package:vbindex/widgets/app_svg_icon.dart';
 
 import 'touch_close_keyboard.dart';
 
@@ -50,6 +51,7 @@ class BasePage extends StatelessWidget {
     this.resizeToAvoidBottomInset = true,
     this.safeAreaTop = true,
     this.padding,
+    this.onRefresh,
   });
 
   final Widget body;
@@ -74,6 +76,9 @@ class BasePage extends StatelessWidget {
   final Color? leadingIconColor;
   final bool resizeToAvoidBottomInset;
   final EdgeInsets? padding;
+
+  /// Pull-to-refresh on the body. When null, the body is not scroll-wrapped.
+  final RefreshCallback? onRefresh;
 
   /// Scroll-end inset above bottom bar (FAB overhang + gap).
   /// Applied inside [SingleChildScrollView] padding, not as outer viewport
@@ -100,6 +105,20 @@ class BasePage extends StatelessWidget {
       return bodyPadding!.resolve(Directionality.of(context));
     }
     return EdgeInsets.symmetric(horizontal: 16.w);
+  }
+
+  Widget _buildBody(
+    BuildContext context,
+    EdgeInsets padding,
+    double scrollInset,
+  ) {
+    final content = Padding(
+      padding: padding,
+      child: _withScrollBottomInset(context, body, scrollInset),
+    );
+    final refresh = onRefresh;
+    if (refresh == null) return content;
+    return AppRefreshIndicator(onRefresh: refresh, child: content);
   }
 
   /// Injects scroll-end bottom inset via [MediaQuery] so nested scroll views
@@ -169,10 +188,7 @@ class BasePage extends StatelessWidget {
                     leadingIconColor: resolvedLeadingColor,
                   ),
                 Expanded(
-                  child: Padding(
-                    padding: padding,
-                    child: _withScrollBottomInset(context, body, scrollInset),
-                  ),
+                  child: _buildBody(context, padding, scrollInset),
                 ),
               ],
             ),

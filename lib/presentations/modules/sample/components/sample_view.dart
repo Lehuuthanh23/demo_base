@@ -7,7 +7,6 @@ import 'package:vbindex/constants/app_spacing.dart';
 import 'package:vbindex/constants/app_textstyle.dart';
 import 'package:vbindex/presentations/models/sample_item_model.dart';
 import 'package:vbindex/presentations/modules/sample/cubit/sample_cubit.dart';
-import 'package:vbindex/widgets/app_refresh_indicator.dart';
 import 'package:vbindex/widgets/app_text_form_field.dart';
 import 'package:vbindex/widgets/base_page.dart';
 import 'package:vbindex/widgets/base_widget.dart';
@@ -37,12 +36,14 @@ class SampleView extends BaseWidget {
   Widget build(BuildContext context, AppLocalizations tr) {
     return BasePage(
       title: 'Sample',
+      onRefresh: onRefresh,
       floatingActionButton: FloatingActionButton(
         onPressed: onAdd,
         backgroundColor: AppColor.goldGradient.colors.first,
         child: const Icon(Icons.add, color: AppColor.white),
       ),
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Padding(
             padding: EdgeInsets.fromLTRB(
@@ -56,7 +57,7 @@ class SampleView extends BaseWidget {
               onSearch: onSearch,
             ),
           ),
-          Expanded(child: _body(context)),
+          _body(context),
         ],
       ),
     );
@@ -64,10 +65,10 @@ class SampleView extends BaseWidget {
 
   Widget _body(BuildContext context) {
     if (state.status == SampleStatus.loading && state.items.isEmpty) {
-      return const Center(child: CircularProgressIndicator());
+      return const _SampleStatusSlot(child: CircularProgressIndicator());
     }
     if (state.status == SampleStatus.failure && state.items.isEmpty) {
-      return Center(
+      return _SampleStatusSlot(
         child: Padding(
           padding: EdgeInsets.all(AppSpacing.spacing4.w),
           child: Column(
@@ -81,45 +82,51 @@ class SampleView extends BaseWidget {
                 ),
               ),
               SizedBox(height: AppSpacing.spacing3.h),
-              TextButton(onPressed: onRefresh, child: const Text('Thử lại')),
+              TextButton(
+                onPressed: () => onRefresh(),
+                child: const Text('Thử lại'),
+              ),
             ],
           ),
         ),
       );
     }
     if (state.items.isEmpty) {
-      return AppRefreshIndicator(
-        onRefresh: onRefresh,
-        slivers: const [
-          SliverFillRemaining(child: EmptyWidget(title: 'Chưa có sample')),
-        ],
+      return const _SampleStatusSlot(
+        child: EmptyWidget(title: 'Chưa có sample'),
       );
     }
-    return AppRefreshIndicator(
-      onRefresh: onRefresh,
-      slivers: [
-        SliverPadding(
-          padding: EdgeInsets.fromLTRB(
-            AppSpacing.spacing4.w,
-            AppSpacing.spacing2.h,
-            AppSpacing.spacing4.w,
-            96.h,
-          ),
-          sliver: SliverList.separated(
-            itemCount: state.items.length,
-            separatorBuilder: (_, _) => SizedBox(height: AppSpacing.spacing2.h),
-            itemBuilder: (context, index) {
-              final item = state.items[index];
-              return _SampleItemCard(
-                item: item,
-                onTap: () => onEdit(item),
-                onDelete: () => onDelete(item),
-              );
-            },
-          ),
-        ),
-      ],
+    return Padding(
+      padding: EdgeInsets.fromLTRB(
+        AppSpacing.spacing4.w,
+        AppSpacing.spacing2.h,
+        AppSpacing.spacing4.w,
+        96.h,
+      ),
+      child: Column(
+        children: [
+          for (var index = 0; index < state.items.length; index++) ...[
+            if (index > 0) SizedBox(height: AppSpacing.spacing2.h),
+            _SampleItemCard(
+              item: state.items[index],
+              onTap: () => onEdit(state.items[index]),
+              onDelete: () => onDelete(state.items[index]),
+            ),
+          ],
+        ],
+      ),
     );
+  }
+}
+
+class _SampleStatusSlot extends StatelessWidget {
+  const _SampleStatusSlot({required this.child});
+
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(height: 360.h, child: Center(child: child));
   }
 }
 
