@@ -1,0 +1,75 @@
+{
+  "identifier" : "VBIndexProducts",
+  "nonRenewingSubscriptions" : [
+
+  ],
+  "products" : [
+
+  ],
+  "settings" : {
+    "_applicationInternalID" : "6800971195",
+    "_developerTeamID" : "AA8HKGWWKG",
+    "_failTransactionsEnabled" : false,
+    "_locale" : "vi",
+    "_storefront" : "VNM",
+    "_storeKitErrors" : [
+
+    ]
+  },
+  "subscriptionGroups" : [
+    {
+      "id" : "VBINDEX_PRO",
+      "localizations" : [
+        {
+          "description" : "Sổ vàng bạc PRO",
+          "displayName" : "Sổ vàng bạc PRO",
+          "locale" : "vi"
+        },
+        {
+          "description" : "Sổ vàng bạc PRO",
+          "displayName" : "Sổ vàng bạc PRO",
+          "locale" : "en_US"
+        }
+      ],
+      "name" : "Sổ vàng bạc PRO",
+      "subscriptions" : [
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "79000",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "pro_monthly_local",
+          "localizations" : [
+            {
+              "description" : "PRO theo tháng — gia hạn sau dùng thử đăng ký",
+              "displayName" : "Sổ vàng bạc PRO Monthly",
+              "locale" : "vi"
+            },
+            {
+              "description" : "PRO monthly — paid renew after signup trial",
+              "displayName" : "Sổ vàng bạc PRO Monthly",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "pro_monthly",
+          "recurringSubscriptionPeriod" : "P1M",
+          "referenceName" : "Pro Monthly",
+          "subscriptionGroupID" : "VBINDEX_PRO",
+          "type" : "RecurringSubscription",
+          "winbackOffers" : [
+
+          ]
+        }
+      ]
+    }
+  ],
+  "version" : {
+    "major" : 3,
+    "minor" : 0
+  }
+}

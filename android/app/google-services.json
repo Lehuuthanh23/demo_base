@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "488308256771",
+    "project_id": "gold-silver-book",
+    "storage_bucket": "gold-silver-book.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:488308256771:android:7f1295440ac428ba6bde36",
+        "android_client_info": {
+          "package_name": "com.base.demo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCBu-sIqLI_ohc9riLsDOUr6-GkCn5FaV4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

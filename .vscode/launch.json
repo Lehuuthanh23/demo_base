@@ -1,0 +1,29 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "vppos (DEV)",
+            "request": "launch",
+            "type": "dart",
+            "args": [
+                "--dart-define=ENVIRONMENT=DEV"
+            ]
+        },
+        {
+            "name": "vppos (QA)",
+            "request": "launch",
+            "type": "dart",
+            "args": [
+                "--dart-define=ENVIRONMENT=QA"
+            ]
+        },
+        {
+            "name": "vppos (PROD)",
+            "request": "launch",
+            "type": "dart",
+            "args": [
+                "--dart-define=ENVIRONMENT=PROD"
+            ]
+        }
+    ]
+}
