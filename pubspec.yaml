@@ -32,8 +32,6 @@ dependencies:
   core:
     path: ./core
 
-  flutter_native_splash: ^2.4.7
-  flutter_launcher_icons: ^0.14.4
   bloc: ^9.2.0
   flutter_bloc: ^9.1.1
   dartz: ^0.10.1
@@ -110,24 +108,3 @@ flutter:
       fonts:
         - asset: assets/fonts/BD_StreetSign_Sans/BDStreetSignSans-SlightlyRaisedExtremeInktrap.otf
           weight: 400
-
-flutter_native_splash:
-  # background_image: assets/images/splash_gradient.png
-  color: "#F0F0F0"
-  image: assets/images/icon_splash.png
-  android: true
-  ios: true
-  web: false
-  fullscreen: false
-  android_12:
-    color: "#F0F0F0"
-    image: assets/images/icon_splash.png
-    # icon_background_color: "#FFFFFF"
-
-flutter_launcher_icons:
-  android: true
-  ios: true
-  image_path: assets/images/app_icon.png
-  adaptive_icon_background: "#FFE4DC"
-  adaptive_icon_foreground: assets/images/app_icon.png
-  remove_alpha_ios: true

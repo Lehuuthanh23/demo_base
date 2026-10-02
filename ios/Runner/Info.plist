@@ -7,7 +7,7 @@
 		<key>CFBundleDevelopmentRegion</key>
 		<string>$(DEVELOPMENT_LANGUAGE)</string>
 		<key>CFBundleDisplayName</key>
-		<string>Sổ vàng bạc</string>
+		<string>Demo Base</string>
 		<key>CFBundleExecutable</key>
 		<string>$(EXECUTABLE_NAME)</string>
 		<key>CFBundleIdentifier</key>
@@ -15,7 +15,7 @@
 		<key>CFBundleInfoDictionaryVersion</key>
 		<string>6.0</string>
 		<key>CFBundleName</key>
-		<string>Sổ vàng bạc</string>
+		<string>Demo Base</string>
 		<key>CFBundlePackageType</key>
 		<string>APPL</string>
 		<key>CFBundleShortVersionString</key>
@@ -64,19 +64,19 @@
 			<string>_dartobservatory._tcp</string>
 		</array>
 		<key>NSCameraUsageDescription</key>
-		<string>Sổ vàng bạc cần camera để chụp hóa đơn giao dịch.</string>
+		<string>Demo Base cần camera để chụp hóa đơn giao dịch.</string>
 		<key>NSFaceIDUsageDescription</key>
-		<string>Sổ vàng bạc dùng Face ID để xác thực và đăng nhập nhanh.</string>
+		<string>Demo Base dùng Face ID để xác thực và đăng nhập nhanh.</string>
 		<key>NSLocalNetworkUsageDescription</key>
-		<string>Sổ vàng bạc cần mạng cục bộ để kết nối máy Mac khi chạy debug (hot reload).</string>
+		<string>Demo Base cần mạng cục bộ để kết nối máy Mac khi chạy debug (hot reload).</string>
 		<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-		<string>Sổ vàng bạc có thể dùng vị trí để hỗ trợ các tính năng liên quan khi bạn đang dùng app.</string>
+		<string>Demo Base có thể dùng vị trí để hỗ trợ các tính năng liên quan khi bạn đang dùng app.</string>
 		<key>NSLocationWhenInUseUsageDescription</key>
-		<string>Sổ vàng bạc có thể dùng vị trí để hỗ trợ các tính năng liên quan khi bạn đang dùng app.</string>
+		<string>Demo Base có thể dùng vị trí để hỗ trợ các tính năng liên quan khi bạn đang dùng app.</string>
 		<key>NSPhotoLibraryAddUsageDescription</key>
-		<string>Sổ vàng bạc cần quyền lưu ảnh danh mục đầu tư và hóa đơn vào thư viện.</string>
+		<string>Demo Base cần quyền lưu ảnh danh mục đầu tư và hóa đơn vào thư viện.</string>
 		<key>NSPhotoLibraryUsageDescription</key>
-		<string>Sổ vàng bạc cần thư viện ảnh để chọn hóa đơn giao dịch.</string>
+		<string>Demo Base cần thư viện ảnh để chọn hóa đơn giao dịch.</string>
 		<key>UIApplicationSupportsIndirectInputEvents</key>
 		<true/>
 		<key>UIBackgroundModes</key>

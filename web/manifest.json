@@ -1,6 +1,6 @@
 {
-    "name": "vbindex",
-    "short_name": "vbindex",
+    "name": "Demo Base",
+    "short_name": "Demo Base",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

@@ -59,19 +59,19 @@ class Environments {
   static final List<Map<String, String>> _availableEnvironments = [
     {
       'env': Environments.dev,  
-      'appName': 'Sổ vàng bạc',
+      'appName': 'Demo Base',
       // Simulator/iOS: localhost. Android emulator: dùng 10.0.2.2
       'url': 'https://vbindex-sandbox.biexce.com/api/v1/',
       // 'url': 'http://192.168.1.141:4001/api/v1/',
     },
     {
       'env': Environments.qa,
-      'appName': 'Sổ vàng bạc',
+      'appName': 'Demo Base',
       'url': 'https://vbindex.biexce.com/api/v1/',
     },
     {
       'env': Environments.production,
-      'appName': 'Sổ vàng bạc',
+      'appName': 'Demo Base',
       'url': 'https://vbindex.biexce.com/api/v1/',
     },
   ];
@@ -80,7 +80,7 @@ class Environments {
     return _availableEnvironments.firstWhere(
           (d) => d['env'] == _currentEnvironments,
         )['appName'] ??
-        'Sổ vàng bạc';
+        'Demo Base';
   }
 
   static String getUrl() {
